@@ -77,6 +77,10 @@
   height: 100%;
 }
 
+.projects__grid > * {
+  min-width: 0;
+}
+
 .projects__grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
@@ -97,5 +101,7 @@
   .projects__grid > * {
     width: 100%;
     max-width: 480px;
+    justify-self: center;
+    min-width: 0;
   }
 }

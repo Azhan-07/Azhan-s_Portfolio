@@ -8,6 +8,7 @@
   overflow: hidden;
   display: flex;
   flex-direction: column;
+  min-width: 0;
 }
 
 .project-card .project-card__content {
@@ -425,6 +426,7 @@
   display: flex;
   align-items: center;
   gap: 12px;
+  flex-wrap: wrap;
 }
 
 .project-card__number {
@@ -564,6 +566,7 @@
   gap: 12px;
   margin-top: auto;
   padding-top: 12px;
+  flex-wrap: wrap;
 }
 
 .project-card__link {
