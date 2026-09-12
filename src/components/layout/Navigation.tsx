@@ -30,6 +30,7 @@ export function Navigation() {
   }, [scrollY]);
 
   useEffect(() => {
+    if (typeof IntersectionObserver === 'undefined') return;
     const sections = navItems.map((item) => item.href.replace('#', ''));
     const observer = new IntersectionObserver(
       (entries) => {

@@ -43,23 +43,51 @@ function AppContent() {
       <CustomCursor />
       <ScrollProgress />
       <EasterEgg />
-      <Navigation />
+      <ErrorBoundary>
+        <Navigation />
+      </ErrorBoundary>
 
       <main>
-        <Hero />
-        <About />
-        <Suspense fallback={<LazyFallback />}>
-          <Skills />
-          <Projects />
-          <Journey />
-          <GitHub />
-        </Suspense>
-        <Terminal />
-        <WhatIBuild />
-        <Contact />
+        <ErrorBoundary>
+          <Hero />
+        </ErrorBoundary>
+        <ErrorBoundary>
+          <About />
+        </ErrorBoundary>
+        <ErrorBoundary>
+          <Suspense fallback={<LazyFallback />}>
+            <Skills />
+          </Suspense>
+        </ErrorBoundary>
+        <ErrorBoundary>
+          <Suspense fallback={<LazyFallback />}>
+            <Projects />
+          </Suspense>
+        </ErrorBoundary>
+        <ErrorBoundary>
+          <Suspense fallback={<LazyFallback />}>
+            <Journey />
+          </Suspense>
+        </ErrorBoundary>
+        <ErrorBoundary>
+          <Suspense fallback={<LazyFallback />}>
+            <GitHub />
+          </Suspense>
+        </ErrorBoundary>
+        <ErrorBoundary>
+          <Terminal />
+        </ErrorBoundary>
+        <ErrorBoundary>
+          <WhatIBuild />
+        </ErrorBoundary>
+        <ErrorBoundary>
+          <Contact />
+        </ErrorBoundary>
       </main>
 
-      <Footer />
+      <ErrorBoundary>
+        <Footer />
+      </ErrorBoundary>
     </>
   );
 }

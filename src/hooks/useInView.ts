@@ -14,6 +14,11 @@ export function useInView({ threshold = 0.1, rootMargin = '0px', once = true }: 
     const el = ref.current;
     if (!el) return;
 
+    if (typeof IntersectionObserver === 'undefined') {
+      setIsInView(true);
+      return;
+    }
+
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {

@@ -13,6 +13,7 @@ export function Magnetic({ children, strength = 0.3, className }: MagneticProps)
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
+    if (typeof window.matchMedia !== 'function') return;
     if (window.matchMedia('(hover: none)').matches) return;
 
     let raf: number | null = null;

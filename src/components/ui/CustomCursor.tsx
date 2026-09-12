@@ -4,7 +4,7 @@ import { useMediaQuery } from '../../hooks/useMediaQuery';
 import './CustomCursor.css';
 
 export function CustomCursor() {
-  const isMobile = useMediaQuery('(hover: none)') || useMediaQuery('(max-width: 768px)');
+  const isMobile = useMediaQuery('(hover: none), (max-width: 768px)');
   const [isClicking, setIsClicking] = useState(false);
   const [cursorVariant, setCursorVariant] = useState<'default' | 'hover' | 'project' | 'text'>('default');
 
