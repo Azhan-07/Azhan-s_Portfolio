@@ -19,7 +19,7 @@ export function usePerformance(): PerformanceSettings {
 
     return {
       isLowPower,
-      reducedParticles: isLowPower ? 400 : 1500,
+      reducedParticles: isLowPower ? 150 : 1500,
       dprLimit: isMobile ? 1 : 1.5,
       disableShaders: isLowPower,
       disableEffects: reducedMotion,

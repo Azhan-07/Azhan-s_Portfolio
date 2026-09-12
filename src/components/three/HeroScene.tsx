@@ -9,9 +9,23 @@ import { Draggable } from './Draggable';
 import { usePerformance } from '../../hooks/usePerformance';
 import { useMediaQuery } from '../../hooks/useMediaQuery';
 
+function supportsWebGL(): boolean {
+  try {
+    const canvas = document.createElement('canvas');
+    return !!(
+      window.WebGLRenderingContext &&
+      (canvas.getContext('webgl') || canvas.getContext('experimental-webgl'))
+    );
+  } catch {
+    return false;
+  }
+}
+
 export function HeroScene() {
   const { isLowPower, reducedParticles, dprLimit, disableEffects } = usePerformance();
   const isMobile = useMediaQuery('(max-width: 768px)');
+
+  if (!supportsWebGL()) return null;
 
   return (
     <Canvas
@@ -63,7 +77,7 @@ export function HeroScene() {
             <AbstractCore position={[0, 0, -3]} />
           </Draggable>
         )}
-        {!disableEffects && <InteractiveGrid />}
+        {!disableEffects && !isMobile && <InteractiveGrid />}
       </Suspense>
     </Canvas>
   );

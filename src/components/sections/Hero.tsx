@@ -2,6 +2,7 @@ import { lazy, Suspense } from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from '../../hooks/useInView';
 import { siteConfig } from '../../data/site';
+import { ErrorBoundary } from '../ui/ErrorBoundary';
 import portraitImage from '../../assets/AZHAN ABDULLAH.png';
 import './Hero.css';
 
@@ -43,7 +44,9 @@ export function Hero() {
   return (
     <section id="hero" className="hero" ref={ref}>
       <Suspense fallback={null}>
-        <HeroScene />
+        <ErrorBoundary>
+          <HeroScene />
+        </ErrorBoundary>
       </Suspense>
 
       <div className="hero__content container">

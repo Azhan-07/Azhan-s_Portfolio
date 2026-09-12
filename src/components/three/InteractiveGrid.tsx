@@ -38,9 +38,10 @@ export function InteractiveGrid({
         varying vec2 vUv;
 
         void main() {
-          vec2 grid = abs(fract(vUv * 20.0 - 0.5) - 0.5) / fwidth(vUv * 20.0);
-          float line = min(grid.x, grid.y);
-          float gridAlpha = 1.0 - min(line, 1.0);
+          vec2 cell = abs(fract(vUv * 20.0 - 0.5) - 0.5);
+          float lineX = smoothstep(0.96, 1.0, cell.x);
+          float lineY = smoothstep(0.96, 1.0, cell.y);
+          float gridAlpha = max(lineX, lineY);
 
           float dist = distance(vUv, uMouse * 0.5 + 0.5);
           float glow = exp(-dist * 5.0) * 0.5;

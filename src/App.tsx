@@ -13,6 +13,7 @@ import { Contact } from './components/sections/Contact';
 import { Footer } from './components/sections/Footer';
 import { useLenis } from './hooks/useLenis';
 import { useScrollRestore } from './hooks/useScrollRestore';
+import { ErrorBoundary } from './components/ui/ErrorBoundary';
 import './styles/global.css';
 import './styles/mixins.css';
 
@@ -66,7 +67,9 @@ function AppContent() {
 function App() {
   return (
     <ThemeProvider>
-      <AppContent />
+      <ErrorBoundary>
+        <AppContent />
+      </ErrorBoundary>
     </ThemeProvider>
   );
 }
