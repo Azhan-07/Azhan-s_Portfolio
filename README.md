@@ -1,32 +1,77 @@
-# React + TypeScript + Vite
+# Azhan Abdullah — Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+Personal portfolio website built with React, TypeScript, and Vite. Features 3D visuals (Three.js / React Three Fiber), smooth scroll animations, and a full project showcase.
 
-Currently, two official plugins are available:
+## Tech Stack
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- **React 19** + **TypeScript**
+- **Vite 8** for build tooling
+- **React Three Fiber** / **Three.js** / **Drei** — 3D hero and effects
+- **Framer Motion** — animations
+- **GSAP** — timeline/scroll animations
+- **Lenis** — smooth scrolling
+- **Oxlint** — linting
 
-## React Compiler
+## Getting Started
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### Prerequisites
 
-## Expanding the Oxlint configuration
+- Node.js **20.19+** (or newer LTS) and npm
 
-If you are developing a production application, we recommend enabling type-aware lint rules by installing `oxlint-tsgolint` and editing `.oxlintrc.json`:
+### Installation
 
-```json
-{
-  "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["react", "typescript", "oxc"],
-  "options": {
-    "typeAware": true
-  },
-  "rules": {
-    "react/rules-of-hooks": "error",
-    "react/only-export-components": ["warn", { "allowConstantExport": true }]
-  }
-}
+```bash
+# 1. Install dependencies
+npm install
+
+# 2. Start the dev server (http://localhost:5173)
+npm run dev
 ```
 
-See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
+### Production Build
+
+```bash
+# Type-check + build to /dist
+npm run build
+
+# Preview the production build locally
+npm run preview
+```
+
+### Lint
+
+```bash
+npm run lint
+```
+
+## Project Structure
+
+```
+src/
+├── components/
+│   ├── layout/     # Navigation, theme provider
+│   ├── sections/   # Hero, About, Projects, Skills, Contact, etc.
+│   ├── three/      # 3D scene components
+│   └── ui/         # Project cards, detail modal, cursor, etc.
+├── data/           # site, projects, skills, socials config
+├── hooks/          # custom React hooks
+├── styles/         # global CSS
+└── assets/         # images
+```
+
+## Customization
+
+- **Site info** (name, email, links): edit `src/data/site.ts`
+- **Projects**: edit `src/data/projects.ts`
+- **Skills**: edit `src/data/skills.ts`
+- **Social links**: edit `src/data/socials.ts`
+
+## Deploy
+
+Any static host works (Vercel, Netlify, GitHub Pages). The build output is in `dist/` and uses no server-side code.
+
+```bash
+npm run build
+```
+
+Then deploy the `dist/` folder to your host of choice.
