@@ -25,6 +25,7 @@ export function HeroScene() {
   const { isLowPower, reducedParticles, dprLimit, disableEffects } = usePerformance();
   const isMobile = useMediaQuery('(max-width: 768px)');
 
+  if (isMobile) return null;
   if (!supportsWebGL()) return null;
 
   return (

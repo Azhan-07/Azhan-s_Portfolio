@@ -19,6 +19,74 @@
   </head>
   <body>
     <div id="root"></div>
+    <script>
+      (function () {
+        var overlay = null;
+        function removeOverlay() {
+          if (overlay && overlay.parentNode) {
+            overlay.parentNode.removeChild(overlay);
+            overlay = null;
+          }
+        }
+        function show(message) {
+          try {
+            var root = document.getElementById('root');
+            if (root && root.children && root.children.length > 0) return;
+            removeOverlay();
+            var el = document.createElement('div');
+            el.style.cssText =
+              'position:fixed;top:0;left:0;right:0;bottom:0;z-index:99999;display:flex;align-items:center;justify-content:center;background:#050505;color:#f0f0f0;font-family:Inter,sans-serif;text-align:center;padding:24px;box-sizing:border-box;';
+            el.innerHTML =
+              '<div><div style="font-size:12px;letter-spacing:3px;text-transform:uppercase;color:#a855f7;margin-bottom:12px;">AZHAN ABDULLAH</div>' +
+              '<h1 style="font-size:22px;margin:0 0 8px;">Something went wrong</h1>' +
+              '<p style="color:#888;font-size:14px;margin:0 0 20px;word-break:break-word;max-width:420px;">' +
+              message +
+              '</p>' +
+              '<button style="background:#a855f7;border:0;color:#fff;padding:14px 28px;border-radius:8px;font-weight:600;font-size:14px;cursor:pointer;">Reload page</button></div>';
+            el.querySelector('button').onclick = function () {
+              window.location.reload();
+            };
+            overlay = el;
+            document.body.appendChild(el);
+          } catch (e) {}
+        }
+
+        window.addEventListener('error', function (e) {
+          var target = e && e.target;
+          if (target && target.tagName && target.tagName !== 'SCRIPT') return;
+          var msg = e && e.message ? e.message : 'A script could not load on this device.';
+          show(msg);
+        });
+        window.addEventListener('unhandledrejection', function (e) {
+          var reason = e && e.reason;
+          var msg = reason && reason.message ? reason.message : String(reason);
+          show(msg);
+        });
+
+        var attempts = 0;
+        setInterval(function () {
+          try {
+            var root = document.getElementById('root');
+            if (root && root.children && root.children.length > 0) {
+              removeOverlay();
+              return;
+            }
+            attempts++;
+            if (attempts > 12) {
+              removeOverlay();
+              show(
+                'The page could not load on this device. Update your browser or open the site in another browser.'
+              );
+            }
+          } catch (e) {}
+        }, 500);
+      })();
+    </script>
+    <noscript
+      ><div style="position:absolute;top:40%;left:0;right:0;text-align:center;color:#f0f0f0;font-family:sans-serif;padding:20px">
+        Please enable JavaScript to view this site.
+      </div></noscript
+    >
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
