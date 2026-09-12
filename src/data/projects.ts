@@ -9,7 +9,7 @@ import srsImage from '../assets/srsdocumenttaion generator.png';
 import mirrorClone from '../assets/mirror_clone.png';
 import searchAlgo from '../assets/search_algo.png';
 import attendanceImage from '../assets/smart_attendence_system.png';
-import techxai from '../assets/aircanvas.png';
+import techxai from '../assets/Aircanvas.png';
 import handVolumeController from '../assets/hand_volume_controller.png';
 import shayanTraders from '../assets/shayanfoods crm.png';
 import himoKb from '../assets/himo kb.png';
