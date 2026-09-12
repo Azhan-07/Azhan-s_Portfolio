@@ -1,0 +1,31 @@
+.easter-egg {
+  position: fixed;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%) translateY(20px);
+  z-index: 10000;
+  background: var(--bg-secondary);
+  border: 1px solid var(--accent-purple);
+  padding: 16px 24px;
+  text-align: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.4s var(--ease-out-expo);
+  box-shadow: 0 0 40px rgba(168, 85, 247, 0.2);
+}
+
+.easter-egg--show {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+.easter-egg__text {
+  font-size: 0.7rem;
+  color: var(--accent-purple);
+  margin-bottom: 4px;
+}
+
+.easter-egg__message {
+  font-size: 0.8rem;
+  color: var(--text-primary);
+}

@@ -1,0 +1,122 @@
+.journey {
+  position: relative;
+  overflow: hidden;
+}
+
+.journey__title {
+  margin-top: 16px;
+  background: linear-gradient(135deg, var(--text-primary) 0%, var(--text-secondary) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.journey__header {
+  margin-bottom: clamp(48px, 6vw, 80px);
+}
+
+.timeline {
+  position: relative;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.timeline__line {
+  position: absolute;
+  left: 24px;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: var(--border-color);
+}
+
+.timeline__line::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, var(--accent-purple), var(--accent-orange));
+  opacity: 0.3;
+  animation: lineGrow 2s ease-out forwards;
+  transform-origin: top;
+}
+
+.timeline__item {
+  display: flex;
+  gap: 24px;
+  padding: 24px 0;
+  position: relative;
+}
+
+.timeline__node {
+  position: relative;
+  flex-shrink: 0;
+  width: 48px;
+  display: flex;
+  justify-content: center;
+  padding-top: 8px;
+}
+
+.timeline__node-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--accent-purple);
+  border: 2px solid var(--bg-primary);
+  box-shadow: 0 0 12px rgba(168, 85, 247, 0.3);
+  position: relative;
+  z-index: 1;
+}
+
+.timeline__item:nth-child(even) .timeline__node-dot {
+  background: var(--accent-orange);
+  box-shadow: 0 0 12px rgba(249, 115, 22, 0.3);
+}
+
+.timeline__content {
+  flex: 1;
+  padding: 0 20px 20px;
+  border: 1px solid var(--border-color);
+  background: var(--bg-secondary);
+  transition: all 0.35s var(--ease-out-expo), transform 0.15s ease-out;
+}
+
+.timeline__content:hover {
+  border-color: var(--border-hover);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px color-mix(in srgb, var(--accent-purple) 8%, transparent);
+}
+
+.timeline__icon {
+  font-size: 1.5rem;
+  margin-bottom: 8px;
+}
+
+.timeline__item-title {
+  font-family: var(--font-primary);
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.timeline__item-desc {
+  font-size: 0.85rem;
+  color: var(--text-tertiary);
+  line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+  .timeline__line {
+    left: 16px;
+  }
+
+  .timeline__node {
+    width: 32px;
+  }
+
+  .timeline__content {
+    padding: 0 12px 12px;
+  }
+}

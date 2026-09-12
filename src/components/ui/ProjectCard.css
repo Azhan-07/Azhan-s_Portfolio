@@ -1,0 +1,673 @@
+.project-card {
+  position: relative;
+  cursor: pointer;
+  transition: transform 0.3s var(--ease-out-expo);
+  will-change: transform;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.project-card .project-card__content {
+  flex: 1;
+}
+
+.project-card:hover {
+  border-color: var(--border-hover);
+}
+
+.project-card:active {
+  transform: translateY(1px) scale(0.995);
+}
+
+.project-card--featured {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  grid-template-areas:
+    "image content";
+  row-gap: 16px;
+  column-gap: 0;
+  align-items: start;
+}
+
+.project-card--featured .project-card__image-wrap {
+  grid-area: image;
+}
+
+.project-card--featured .project-card__content {
+  grid-area: content;
+}
+
+.project-card--featured.project-card--links-below-image {
+  grid-template-areas:
+    "image content"
+    "links content";
+}
+
+.project-card--featured.project-card--links-below-image .project-card__links {
+  grid-area: links;
+  padding: 0 24px;
+  margin-top: 0;
+}
+
+.project-card--secure-link.project-card--featured .project-card__image-wrap,
+.project-card--lead-generator.project-card--featured .project-card__image-wrap {
+  height: auto;
+  min-height: 0;
+  align-self: start;
+  overflow: hidden;
+  margin-top: 0;
+}
+
+.project-card--secure-link.project-card--featured .project-card__image-wrap .project-card__image,
+.project-card--lead-generator.project-card--featured .project-card__image-wrap .project-card__image {
+  aspect-ratio: 3 / 2;
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+}
+
+.project-card--secure-link.project-card--featured .project-card__image-wrap .project-card__image-img,
+.project-card--lead-generator.project-card--featured .project-card__image-wrap .project-card__image-img {
+  object-fit: cover;
+  object-position: top center;
+}
+
+.project-card--secure-link .project-card__image-wrap .project-card__image,
+.project-card--lead-generator .project-card__image-wrap .project-card__image {
+  aspect-ratio: 3 / 2;
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+}
+
+.project-card--secure-link .project-card__image-wrap .project-card__image-img,
+.project-card--lead-generator .project-card__image-wrap .project-card__image-img {
+  object-fit: contain;
+  object-position: top center;
+}
+
+.project-card--url-shortener .project-card__image-wrap,
+.project-card--srs-generator .project-card__image-wrap,
+.project-card--searching-algorithm .project-card__image-wrap,
+.project-card--car-salon .project-card__image-wrap,
+.project-card--secure-link .project-card__image-wrap,
+.project-card--lead-generator .project-card__image-wrap {
+  height: 220px;
+  min-height: 0;
+}
+
+.project-card--url-shortener .project-card__image-wrap .project-card__image,
+.project-card--srs-generator .project-card__image-wrap .project-card__image,
+.project-card--searching-algorithm .project-card__image-wrap .project-card__image,
+.project-card--car-salon .project-card__image-wrap .project-card__image,
+.project-card--secure-link .project-card__image-wrap .project-card__image,
+.project-card--lead-generator .project-card__image-wrap .project-card__image {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+.project-card--url-shortener .project-card__image-img,
+.project-card--srs-generator .project-card__image-img,
+.project-card--searching-algorithm .project-card__image-img,
+.project-card--car-salon .project-card__image-img,
+.project-card--secure-link .project-card__image-img,
+.project-card--lead-generator .project-card__image-img {
+  object-fit: contain;
+  object-position: top center;
+  background: var(--bg-tertiary);
+}
+
+.project-card--car-salon .project-card__image-wrap {
+  height: 170px;
+  min-height: 0;
+}
+
+.project-card--car-salon .project-card__image-wrap .project-card__image-img {
+  object-fit: cover;
+  object-position: top center;
+}
+
+.project-card--smart-attendance .project-card__desc {
+  -webkit-line-clamp: 4;
+  overflow: hidden;
+}
+
+.project-card--smart-attendance .project-card__image-wrap {
+  height: auto;
+  min-height: 0;
+}
+
+.project-card--smart-attendance .project-card__image-wrap .project-card__image {
+  aspect-ratio: 1325 / 594;
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+}
+
+.project-card--smart-attendance .project-card__image-wrap .project-card__image-img {
+  object-fit: cover;
+  object-position: top center;
+}
+
+.project-card--aircanvas .project-card__image-wrap {
+  height: auto;
+  min-height: 0;
+}
+
+.project-card--aircanvas .project-card__image-wrap .project-card__image {
+  aspect-ratio: 659 / 432;
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+}
+
+.project-card--aircanvas .project-card__image-wrap .project-card__image-img {
+  object-fit: cover;
+  object-position: top center;
+}
+
+.project-card--hand-volume-controller .project-card__image-wrap {
+  height: auto;
+  min-height: 0;
+}
+
+.project-card--hand-volume-controller .project-card__image {
+  aspect-ratio: 814 / 439;
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+}
+
+.project-card--hand-volume-controller .project-card__image-img {
+  object-fit: cover;
+  object-position: top center;
+  background: var(--bg-tertiary);
+}
+
+.project-card--hand-volume-controller .project-card__desc {
+  -webkit-line-clamp: 4;
+  overflow: hidden;
+}
+
+.project-card--shayan-inventory .project-card__desc {
+  -webkit-line-clamp: 4;
+  overflow: hidden;
+}
+
+.project-card--shayan-inventory .project-card__image-wrap {
+  height: auto;
+  min-height: 0;
+}
+
+.project-card--shayan-inventory .project-card__image-wrap .project-card__image {
+  aspect-ratio: 1362 / 605;
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+}
+
+.project-card--shayan-inventory .project-card__image-wrap .project-card__image-img {
+  object-fit: contain;
+  object-position: top center;
+  background: var(--bg-tertiary);
+}
+
+.project-card--secure-link .project-card__links,
+.project-card--lead-generator .project-card__links {
+  margin-top: 8px;
+  padding-top: 0;
+}
+
+.project-card--himo-kb .project-card__image-wrap {
+  height: auto;
+  min-height: 0;
+}
+
+.project-card--himo-kb .project-card__image-wrap .project-card__image {
+  aspect-ratio: 1313 / 600;
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+}
+
+.project-card--himo-kb .project-card__image-wrap .project-card__image-img {
+  object-fit: contain;
+  object-position: top center;
+  background: var(--bg-tertiary);
+}
+
+.project-card--king-clothing .project-card__image-wrap {
+  height: auto;
+  min-height: 0;
+}
+
+.project-card--king-clothing .project-card__image-wrap .project-card__image {
+  aspect-ratio: 1365 / 594;
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+}
+
+.project-card--king-clothing .project-card__image-wrap .project-card__image-img {
+  object-fit: cover;
+  object-position: top center;
+  background: var(--bg-tertiary);
+}
+
+.project-card--king-clothing .project-card__desc {
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+}
+
+.project-card__btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  min-height: 44px;
+  padding: 12px 32px;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  background: var(--accent-purple);
+  color: white;
+  border: 1px solid var(--accent-purple);
+  transition: all 0.3s var(--ease-out-expo), transform 0.15s ease-out;
+}
+
+.project-card__btn::before,
+.project-card__btn::after {
+  content: '';
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s var(--ease-out-expo), transform 0.3s var(--ease-out-expo);
+}
+
+.project-card__btn::before {
+  top: -1px;
+  left: -1px;
+  border-top: 2px solid var(--accent-purple);
+  border-left: 2px solid var(--accent-purple);
+  transform: translate(6px, 6px);
+}
+
+.project-card__btn::after {
+  bottom: -1px;
+  right: -1px;
+  border-bottom: 2px solid var(--accent-purple);
+  border-right: 2px solid var(--accent-purple);
+  transform: translate(-6px, -6px);
+}
+
+.project-card__btn:hover::before,
+.project-card__btn:hover::after {
+  opacity: 1;
+  transform: translate(0, 0);
+}
+
+.project-card__btn:hover {
+  background: transparent;
+  color: var(--accent-purple);
+}
+
+.project-card__btn:active {
+  transform: scale(0.96);
+}
+
+.project-card__btn--live {
+  background: var(--accent-orange);
+  color: #000;
+  border: 1px solid var(--accent-orange);
+}
+
+.project-card__btn--live::before {
+  border-top-color: var(--accent-orange);
+  border-left-color: var(--accent-orange);
+}
+
+.project-card__btn--live::after {
+  border-bottom-color: var(--accent-orange);
+  border-right-color: var(--accent-orange);
+}
+
+.project-card__btn--live:active {
+  transform: scale(0.96);
+}
+
+.project-card__btn--live:hover {
+  background: transparent;
+  color: var(--accent-orange);
+}
+
+/* Image */
+.project-card__image-wrap {
+  position: relative;
+  overflow: hidden;
+  height: 220px;
+}
+
+.project-card__image {
+  width: 100%;
+  height: 100%;
+}
+
+.project-card__image-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s var(--ease-out-expo);
+}
+
+.project-card:hover .project-card__image-img {
+  transform: scale(1.05);
+}
+
+.project-card__image-placeholder {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, var(--bg-tertiary) 0%, var(--bg-elevated) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.6s var(--ease-out-expo);
+}
+
+.project-card:hover .project-card__image-placeholder {
+  transform: scale(1.05);
+}
+
+.project-card__image-number {
+  font-size: 3rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  opacity: 0.3;
+}
+
+.project-card__image-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, transparent 40%, var(--bg-secondary) 100%);
+  pointer-events: none;
+}
+
+.project-card__glow {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  background: radial-gradient(circle at 50% 50%, var(--accent-purple-glow) 0%, transparent 70%);
+  transition: opacity 0.4s;
+  pointer-events: none;
+}
+
+.project-card:hover .project-card__glow {
+  opacity: 0.15;
+}
+
+/* Content */
+.project-card__content {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.project-card__meta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.project-card__number {
+  font-size: 0.7rem;
+  color: var(--accent-purple);
+  letter-spacing: 0.1em;
+}
+
+.project-card__category {
+  font-size: 0.65rem;
+  color: var(--text-tertiary);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.project-card__client-badge {
+  font-family: var(--font-mono);
+  font-size: 0.55rem;
+  letter-spacing: 0.1em;
+  padding: 2px 6px;
+  background: var(--accent-orange-dim);
+  color: var(--accent-orange);
+  border: 1px solid rgba(249, 115, 22, 0.2);
+}
+
+.project-card__badge--ecommerce {
+  background: rgba(249, 115, 22, 0.15);
+  color: #fb923c;
+  border: 1px solid rgba(249, 115, 22, 0.3);
+}
+
+.project-card__badge--aiml {
+  background: rgba(168, 85, 247, 0.15);
+  color: #c084fc;
+  border: 1px solid rgba(168, 85, 247, 0.3);
+}
+
+.project-card__badge--fullstack {
+  background: rgba(34, 197, 94, 0.12);
+  color: #4ade80;
+  border: 1px solid rgba(34, 197, 94, 0.3);
+}
+
+.project-card__badge--security {
+  background: rgba(56, 189, 248, 0.12);
+  color: #38bdf8;
+  border: 1px solid rgba(56, 189, 248, 0.3);
+}
+
+.project-card__badge--saas {
+  background: rgba(6, 182, 212, 0.12);
+  color: #22d3ee;
+  border: 1px solid rgba(6, 182, 212, 0.3);
+}
+
+.project-card__badge--python {
+  background: rgba(255, 213, 79, 0.12);
+  color: #ffd54f;
+  border: 1px solid rgba(255, 213, 79, 0.3);
+}
+
+[data-theme="light"] .project-card__badge--ecommerce {
+  background: rgba(234, 88, 12, 0.12);
+  color: #ea580c;
+}
+
+[data-theme="light"] .project-card__badge--aiml {
+  background: rgba(147, 51, 234, 0.12);
+  color: #9333ea;
+}
+
+[data-theme="light"] .project-card__badge--fullstack {
+  background: rgba(22, 163, 74, 0.12);
+  color: #16a34a;
+}
+
+[data-theme="light"] .project-card__badge--security {
+  background: rgba(2, 132, 199, 0.1);
+  color: #0284c7;
+}
+
+[data-theme="light"] .project-card__badge--saas {
+  background: rgba(8, 145, 178, 0.1);
+  color: #0891b2;
+}
+
+[data-theme="light"] .project-card__badge--python {
+  background: rgba(255, 193, 7, 0.12);
+  color: #b45309;
+}
+
+.project-card__title {
+  font-family: var(--font-primary);
+  font-size: clamp(1.2rem, 2vw, 1.6rem);
+  font-weight: 600;
+  color: var(--text-primary);
+  transition: color 0.3s;
+}
+
+.project-card:hover .project-card__title {
+  color: var(--accent-purple);
+}
+
+.project-card__desc {
+  font-size: 0.85rem;
+  color: var(--text-tertiary);
+  line-height: 1.6;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.project-card__techs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin-top: 4px;
+}
+
+.project-card__tech {
+  font-size: 0.6rem;
+  letter-spacing: 0.05em;
+  padding: 3px 8px;
+  background: var(--bg-tertiary);
+  color: var(--text-tertiary);
+  border: 1px solid var(--border-color);
+}
+
+.project-card__tech--more {
+  color: var(--accent-purple);
+  border-color: var(--accent-purple-dim);
+}
+
+.project-card__links {
+  display: flex;
+  gap: 12px;
+  margin-top: auto;
+  padding-top: 12px;
+}
+
+.project-card__link {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-tertiary);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 36px;
+  padding: 6px 0;
+  transition: color 0.3s, transform 0.3s var(--ease-out-expo);
+}
+
+.project-card__link:hover {
+  color: var(--accent-purple);
+  transform: translateX(3px);
+}
+
+.project-card__link:active {
+  transform: translateX(1px) scale(0.98);
+}
+
+.project-card__link--live:hover {
+  color: var(--accent-orange);
+}
+
+/* GitHub/Live as button: keep button sizing over the base text-link styles */
+.project-card__link.project-card__btn {
+  min-height: 44px;
+  padding: 12px 32px;
+  justify-content: center;
+  transition: all 0.3s var(--ease-out-expo), transform 0.15s ease-out;
+}
+
+.project-card__border {
+  position: absolute;
+  inset: -1px;
+  border: 1px solid transparent;
+  pointer-events: none;
+  transition: border-color 0.3s;
+}
+
+.project-card:hover .project-card__border {
+  border-color: var(--accent-purple);
+}
+
+@media (max-width: 768px) {
+  .project-card--featured {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "image"
+      "content";
+    min-height: auto;
+  }
+
+  .project-card--featured.project-card--links-below-image {
+    grid-template-areas:
+      "image"
+      "links"
+      "content";
+  }
+
+  .project-card--featured .project-card__image-wrap {
+    height: 200px;
+    min-height: 200px;
+  }
+
+  .project-card--secure-link.project-card--featured .project-card__image-wrap,
+  .project-card--lead-generator.project-card--featured .project-card__image-wrap,
+  .project-card--searching-algorithm.project-card--featured .project-card__image-wrap {
+    margin-top: 0;
+    height: auto;
+    min-height: 0;
+    align-self: stretch;
+  }
+
+  .project-card--secure-link.project-card--featured .project-card__image-wrap .project-card__image,
+  .project-card--lead-generator.project-card--featured .project-card__image-wrap .project-card__image,
+  .project-card--searching-algorithm.project-card--featured .project-card__image-wrap .project-card__image {
+    aspect-ratio: 3 / 2;
+    max-height: 260px;
+  }
+
+  .project-card--secure-link.project-card--featured .project-card__image-img,
+  .project-card--lead-generator.project-card--featured .project-card__image-img {
+    object-fit: cover;
+    object-position: top center;
+  }
+
+  .project-card__image-wrap,
+  .project-card--featured .project-card__image-wrap {
+    height: auto;
+    min-height: 0;
+  }
+
+  .project-card__image {
+    aspect-ratio: 3 / 2;
+  }
+
+  .project-card__image-img {
+    object-fit: cover;
+  }
+}

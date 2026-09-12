@@ -1,0 +1,122 @@
+.about {
+  position: relative;
+  overflow: hidden;
+}
+
+.about__header {
+  margin-bottom: clamp(48px, 6vw, 80px);
+}
+
+.about__title {
+  margin-top: 16px;
+  background: linear-gradient(135deg, var(--text-primary) 0%, var(--text-secondary) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.about__grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: clamp(40px, 6vw, 100px);
+  align-items: start;
+}
+
+.about__text {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.about__text p {
+  font-size: clamp(1rem, 1.5vw, 1.15rem);
+  line-height: 1.8;
+  color: var(--text-secondary);
+}
+
+.about__highlights {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.about__highlight {
+  padding: 20px 0;
+  border-bottom: 1px solid var(--border-color);
+  position: relative;
+  cursor: default;
+  transition: background 0.3s;
+}
+
+.about__highlight:first-child {
+  border-top: 1px solid var(--border-color);
+}
+
+.about__highlight:hover {
+  background: var(--accent-purple-dim);
+}
+
+.about__highlight-label {
+  font-size: 0.85rem;
+  letter-spacing: 0.1em;
+  color: var(--accent-purple);
+  margin-bottom: 4px;
+}
+
+.about__highlight-desc {
+  font-size: 0.9rem;
+  color: var(--text-tertiary);
+}
+
+.about__highlight-line {
+  position: absolute;
+  left: 0;
+  bottom: -1px;
+  width: 100%;
+  height: 1px;
+  background: var(--accent-purple);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.5s var(--ease-out-expo);
+}
+
+.about__highlight:hover .about__highlight-line {
+  transform: scaleX(1);
+}
+
+/* Decoration */
+.about__decoration {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.about__deco-circle {
+  position: absolute;
+  border-radius: 50%;
+  border: 1px solid var(--border-color);
+}
+
+.about__deco-circle--1 {
+  width: 400px;
+  height: 400px;
+  top: -100px;
+  right: -100px;
+  opacity: 0.3;
+}
+
+.about__deco-circle--2 {
+  width: 300px;
+  height: 300px;
+  bottom: -50px;
+  left: -100px;
+  opacity: 0.2;
+}
+
+@media (max-width: 768px) {
+  .about__grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}

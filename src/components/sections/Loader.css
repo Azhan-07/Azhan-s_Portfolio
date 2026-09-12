@@ -1,0 +1,99 @@
+.loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 10000;
+  background: var(--bg-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.loader__content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  position: relative;
+}
+
+.loader__label {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.3em;
+  color: var(--accent-purple);
+  text-transform: uppercase;
+}
+
+.loader__name {
+  font-family: var(--font-primary);
+  font-size: clamp(2rem, 6vw, 4.5rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+  text-align: center;
+}
+
+.loader__subtitle {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  color: var(--text-tertiary);
+}
+
+.loader__progress-wrap {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  width: min(300px, 60vw);
+}
+
+.loader__progress-bar {
+  flex: 1;
+  height: 1px;
+  background: var(--border-color);
+  position: relative;
+  overflow: hidden;
+}
+
+.loader__progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--accent-purple), var(--accent-orange));
+  transition: width 0.1s linear;
+}
+
+.loader__progress-text {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  min-width: 3ch;
+  text-align: right;
+}
+
+.loader__scan-line {
+  position: absolute;
+  top: 0;
+  left: -50%;
+  width: 200%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--accent-purple), transparent);
+  opacity: 0.3;
+  animation: scan 2s linear infinite;
+}
+
+@keyframes scan {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(200px); }
+}
+
+.loader__overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--bg-primary);
+  transform-origin: bottom;
+}
